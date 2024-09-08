@@ -1,0 +1,56 @@
+
+
+////______________BINARY SEARCHING________________/////
+
+
+#include <iostream>
+using namespace std;
+
+int main(){
+    
+    int n;
+    // cout<<"enter array size : ";
+    cin>>n;
+    int arr[n];
+    
+    // cout<<"enter elements of array: ";
+    for (int i=0; i<n ;i++){
+        cin>>arr[i];
+    }
+
+
+    for (int i=0 ;i<n-1;i++){
+        for(int j=0; j<n-1-i; j++){
+            if(arr[j]>arr[j+1]){
+                swap(arr[j],arr[j+1]);
+            }
+        }
+    }
+    
+    for (int i=0; i<n; i++){
+        cout<<arr[i]<< " ";
+    }
+    cout<<endl;
+    
+    int first=0;
+    int last=n-1;
+    int number=10; 
+    
+    while (first<=last){
+        int mid=(first+last)/2;
+        if (arr[mid]==number){
+            cout<<"number found  at "<<mid+1;
+            break;
+        }
+        else if(arr[mid]<number){
+            first=mid+1;
+        }
+        else{
+            last=mid-1;
+        }
+        if(first>last){
+            cout << "NUMBER NOT FOUND ";
+        }
+    }
+    return 0;
+}
